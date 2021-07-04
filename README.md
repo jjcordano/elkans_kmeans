@@ -1,4 +1,4 @@
-# Implementing Elkan's Kmeans:
+# Elkan's Kmeans:
 ## A word on the algortihms :
 
 This library implements the well-known Kmeans clustering algorithm from scratch using 2 methods : 
