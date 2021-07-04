@@ -4,18 +4,16 @@
 import numpy as np
 
 class Kmeans:
-    def __init__(self, k=2, max_iter=250, tolerance=0, method='classic'):
+    def __init__(self, k=2, max_iter=250, tolerance=0, method='Elkan'):
         """
         Initialises a Kmeans clustering algorithm.
         
         Args:
         - k: Number of clusters. Defaults to 2.
         - max_iter: Maximum number of iterations to be performed before the Kmeans algorithm terminates. Defaults to 250.
-        - tolerance: Threshold distance change for each centroid to terminate algorithm. 
+        - tolerance: Threshold distance change for each centroid to terminate algorithm. Defaults to 0.
         When the distance rate of change for each centroid between 2 subsequent iterations is lower than the tolerance, the algorithm terminates.
-        - method: "classic" or "Elkan". "classic": at each iteration and for each point, the distance to each centroid is computed.
-        "Elkan": accelerated version of the Kmeans algorithm proposed by C. Elkan (2003) that uses triangle inequalities 
-        to bypass distance calculations with distant centroids.
+        - method: 'classic' or 'Elkan'. Determines whether the classic Kmeans or Elkan's accelerated Kmeans algorithm will be used. Defaults to 'Elkan'.
         """
         
         assert method in ['classic','Elkan'], "Method argument not valid"
