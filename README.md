@@ -1,5 +1,5 @@
 # Elkan's Kmeans:
-## A word on the algortihms :
+## A word on the algorithm :
 
 This library implements the well-known Kmeans clustering algorithm from scratch using 2 methods : 
 - the classic algorithm, and
