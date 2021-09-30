@@ -8,17 +8,17 @@ This library implements the well-known Kmeans clustering algorithm from scratch 
 ### Classic Kmeans:
 The original Kmeans algorithm was proposed in parallel by Hugo Steinhaus in 1956 and later by James MacQueen in 1967. 
 
-This common unsupervised clustering algorithm works as follows: at first, _k_ random centroids are initialized, then at each iteration _e_, the distance between each point and each centroid is computed, and the point is assigned to its closest centroid.  At the end of each iteration, the position of each centroid is updated and becomes the average of the coordinates of each point assigned to it.
+This common unsupervised clustering algorithm works as follows: at first, _k_ random centroids are initialized, then at each iteration _e_, the distance between each point and each centroid is computed, and the point is assigned to its closest centroid.  At the end of each iteration, the position of each centroid is updated and becomes the average of the coordinates of each point assigned to it. This is repeated until the algorithm converges.
 
 ### Elkan's accelerated Kmeans:
 This variation of the Kmeans clustering method was presented by Charles Elkan in his 2003 paper titled [__*Using the Triangle Inequality to Accelerate k-Means*__](https://www.aaai.org/Papers/ICML/2003/ICML03-022.pdf). 
 
-As presented in the article, Elkan's Kmeans method is based on 2 Lemmas and a fundamental innovation compared to the classic method : the computation of distances between centroids at the beginning of each iteration. The proofs for the following lemmas are trivial and presented in the article.
+As presented in the article, Elkan's Kmeans method is based on 2 Lemmas, and relies mainly on one fundamental innovation compared to the classic method : the computation of distances between centroids at the beginning of each iteration. The proofs for the following lemmas are trivial and presented in the article.
 
 #### Lemma 1:
 In plain words, the first Lemma states that if the distance between a point x and a centroid b is shorter or equal than *half* the distance between b and the closest centroid c to b, then b is the closest centroid to x.
 
-This powerful assertion allows the algorithm to avoid distance computations, especially in later iterations when many points are close to the center assigned at the previous iteration.  This improvement alone still requires the computation of distances between each point and its assigned centroid, and between the point and all possible centroids if another possible centroid does not fulfill *Lemma 1*. To accelerate these steps as well, Elkan introduces *Lemma 2* presented below.
+This powerful assertion allows the algorithm to avoid distance computations, especially in later iterations when many points are close to the center assigned at the previous iteration. This improvement alone still requires the computation of distances between each point and its assigned centroid, and between the point and all possible centroids if another possible centroid does not fulfill *Lemma 1*. To accelerate these steps as well, Elkan introduces *Lemma 2* presented below.
 
 #### Lemma 2:
 In plain words, the second lemma states that the distance between a point x and a centroid b at time t will always be larger or equal than the distance between point x and centroid b at time t-1 minus the change in centroid b's postion between time t-1 and time t.
