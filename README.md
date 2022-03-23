@@ -16,12 +16,12 @@ This variation of the Kmeans clustering method was presented by Charles Elkan in
 As presented in the article, Elkan's Kmeans method is based on 2 Lemmas, and relies mainly on one fundamental innovation compared to the classic method : the computation of distances between centroids at the beginning of each iteration. The proofs for the following lemmas are trivial and presented in the article.
 
 #### Lemma 1:
-In plain words, the first Lemma states that if the distance between a point x and a centroid b is shorter or equal than *half* the distance between b and the closest centroid c to b, then b is the closest centroid to x.
+The first Lemma states that if the distance between a point *x* and a centroid *b* is shorter or equal than *half* the distance between *b* and the closest centroid *c* to *b*, then *b* is the closest centroid to *x*.
 
-This powerful assertion allows the algorithm to avoid distance computations, especially in later iterations when many points are close to the center assigned at the previous iteration. This improvement alone still requires the computation of distances between each point and its assigned centroid, and between the point and all possible centroids if another possible centroid does not fulfill *Lemma 1*. To accelerate these steps as well, Elkan introduces *Lemma 2* presented below.
+This assertion allows the algorithm to avoid certain distance calculations, especially in later iterations when many points are close to the center assigned at the previous iteration. This improvement alone still requires the computation of distances between each point and its assigned centroid, and between the point and all possible centroids if another possible centroid does not fulfill *Lemma 1*. To accelerate these steps as well, Elkan introduces *Lemma 2* presented below.
 
 #### Lemma 2:
-In plain words, the second lemma states that the distance between a point x and a centroid b at time t will always be larger or equal than the distance between point x and centroid b at time t-1 minus the change in centroid b's postion between time t-1 and time t.
+In plain words, the second lemma states that the distance between a point *x* and a centroid *b* at time *t* will always be larger or equal than the distance between point *x* and centroid *b* at time *t-1* minus the change in centroid *b*'s postion between time *t-1* and time *t*.
 
 With this, Elkan introduces the notion of 'lower bound' between each point and all centroids not assigned to it.  In addition, to avoid computing the distance between each point and its centroid designated at the previous iteration, the 'upper bound' for this distance is used instead: the last known upper bound plus the change in the centroid's postion between time t-1 and time t.
 
