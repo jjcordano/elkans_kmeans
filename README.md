@@ -1,16 +1,16 @@
-# Elkan's Kmeans:
-## A word on the algorithm :
+# Elkan's Kmeans
+## A word on the algorithm
 
 This library implements the well-known Kmeans clustering algorithm from scratch using 2 methods : 
 - the classic algorithm, and
 - the accelerated version proposed by Charles Elkan in 2003.
 
-### Classic Kmeans:
+### Classic Kmeans
 The original Kmeans algorithm was proposed in parallel by Hugo Steinhaus in 1956 and later by James MacQueen in 1967. 
 
 This common unsupervised clustering algorithm works as follows: at first, _k_ random centroids are initialized, then at each iteration _e_, the distance between each point and each centroid is calculated, and the point is assigned to its closest centroid.  At the end of each iteration, the position of each centroid is updated to become the average of the coordinates of each point assigned to it. This is repeated until the algorithm converges.
 
-### Elkan's accelerated Kmeans:
+### Elkan's accelerated Kmeans
 This variation of the Kmeans clustering method was presented by Charles Elkan in his 2003 paper titled [__*Using the Triangle Inequality to Accelerate k-Means*__](https://www.aaai.org/Papers/ICML/2003/ICML03-022.pdf). 
 
 As presented in the article, Elkan's Kmeans method is based on 2 Lemmas, and relies mainly on one fundamental innovation compared to the classic method : the computation of distances between centroids at the beginning of each iteration. The proofs for the following lemmas are trivial and presented in the article.
@@ -25,7 +25,7 @@ In plain words, the second lemma states that the distance between a point *x* an
 
 With this, Elkan introduces the notion of 'lower bound' between each point and all centroids not assigned to it.  In addition, to avoid computing the distance between each point and its centroid designated at the previous iteration, the 'upper bound' for this distance is used instead: the last known upper bound plus the change in the centroid's postion between time t-1 and time t.
 
-### Execution time:
+### Execution time
 #### Classic Kmeans:
 For the classic Kmeans method, the number of distance computations is __nke__, where _n_ is the number of data points, _k_ is the number of clusters to be found, and _e_ is the number of iterations required (Elkan, 2003).
 
@@ -46,7 +46,7 @@ The table below gives the average execution time for the Kmeans.fit() method ove
 
 The test_performance.py file described below performs this comparison. The values in the table above are on an indicative basis and are expected to vary at each execution of the main method.
 
-## A word on the Kmeans library :
+## [Quickstart] A word on the Kmeans library
 ### Installation:
 
 The required dependencies to use the Kmeans library are listed
@@ -59,7 +59,7 @@ pip install -U -r requirements.txt
 
 The Kmeans class is accessible in the `kmeans.py` file.
 
-### Class arguments & methods:
+### Class arguments & methods
 #### Arguments of the Kmeans class:
 To declare an instance of the Kmeans algorithm, the Kmeans class takes the following arguments:
 - _k_: the desired number of centroids.
