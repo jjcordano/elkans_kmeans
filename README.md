@@ -47,7 +47,7 @@ The table below gives the average execution time for the Kmeans.fit() method ove
 The test_performance.py file described below performs this comparison. The values in the table above are on an indicative basis and are expected to vary at each execution of the main method.
 
 ## [Quickstart] A word on the Kmeans library
-### Installation:
+### Installation
 
 The required dependencies to use the Kmeans library are listed
 in `requirements.txt`. You can install the dependencies with the
